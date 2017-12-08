@@ -41,25 +41,27 @@ print "ETH/USD: {} usd".format(ethusd_price)
 print "ETH/EUR: {} eu".format(etheur_price)
 print "ETH/BTC: {} btc".format(ethbtc_price)
 
-ltcusd_btcfirst_arb = (((EXAMPLE_ARB_BTC / ltcbtc_price) * ltcusd_price) / btcusd_price) - (TRANSACTFEE_BTC + (TRANSACTFEE_LTC *2))
-ltcusd_usdfirst_arb = (((EXAMPLE_ARB_BTC * btcusd_price) / ltcusd_price) * ltcbtc_price) - (TRANSACTFEE_BTC + (TRANSACTFEE_LTC *2))
-ltceur_btcfirst_arb = (((EXAMPLE_ARB_BTC / ltcbtc_price) * ltceur_price) / btceur_price) - (TRANSACTFEE_BTC + (TRANSACTFEE_LTC *2))
-ltceur_eurfirst_arb = (((EXAMPLE_ARB_BTC * btceur_price) / ltceur_price) * ltcbtc_price) - (TRANSACTFEE_BTC + (TRANSACTFEE_LTC *2))
+ltc_fees = TRANSACTFEE_BTC + (TRANSACTFEE_LTC *2)
+ltcusd_btcfirst_arb = (((EXAMPLE_ARB_BTC / ltcbtc_price) * ltcusd_price) / btcusd_price) - ltc_fees
+ltcusd_usdfirst_arb = (((EXAMPLE_ARB_BTC * btcusd_price) / ltcusd_price) * ltcbtc_price) - ltc_fees
+ltceur_btcfirst_arb = (((EXAMPLE_ARB_BTC / ltcbtc_price) * ltceur_price) / btceur_price) - ltc_fees
+ltceur_eurfirst_arb = (((EXAMPLE_ARB_BTC * btceur_price) / ltceur_price) * ltcbtc_price) - ltc_fees
 print "==="
 print "LTC:"
-print "USD native: {} usd".format(ltcusd_price)
+print "USD native: {} usd [{} btc arb fees: {} btc/{} usd]".format(ltcusd_price, EXAMPLE_ARB_BTC, ltc_fees * EXAMPLE_ARB_BTC, ltc_fees * EXAMPLE_ARB_BTC * btcusd_price)
 print "USD btc-first: {} usd [{} btc arbed: {}, arb profit: {} btc/{} usd]".format(ltcbtc_price * btcusd_price, EXAMPLE_ARB_BTC, ltcusd_btcfirst_arb, ltcusd_btcfirst_arb - EXAMPLE_ARB_BTC, (ltcusd_btcfirst_arb - EXAMPLE_ARB_BTC) * btcusd_price)
 print "USD usd-first: {} usd [{} btc arbed: {}, arb profit: {} btc/{} usd]".format(ltcbtc_price * btcusd_price, EXAMPLE_ARB_BTC, ltcusd_usdfirst_arb, ltcusd_usdfirst_arb - EXAMPLE_ARB_BTC, (ltcusd_usdfirst_arb - EXAMPLE_ARB_BTC) * btcusd_price)
 print "EUR btc-first: {} usd [{} btc arbed: {}, arb profit: {} btc/{} usd]".format(ltceur_price / btceur_price * btcusd_price, EXAMPLE_ARB_BTC, ltceur_btcfirst_arb, ltceur_btcfirst_arb- EXAMPLE_ARB_BTC, (ltceur_btcfirst_arb - EXAMPLE_ARB_BTC) * btcusd_price)
 print "EUR eur-first: {} usd [{} btc arbed: {}, arb profit: {} btc/{} usd]".format(ltceur_price / btceur_price * btcusd_price, EXAMPLE_ARB_BTC, ltceur_eurfirst_arb, ltceur_eurfirst_arb- EXAMPLE_ARB_BTC, (ltceur_eurfirst_arb - EXAMPLE_ARB_BTC) * btcusd_price)
 
-ethusd_btcfirst_arb = (((EXAMPLE_ARB_BTC / ethbtc_price) * ethusd_price) / btcusd_price) - (TRANSACTFEE_BTC + (TRANSACTFEE_ETH *2))
-ethusd_usdfirst_arb = (((EXAMPLE_ARB_BTC * btcusd_price) / ethusd_price) * ethbtc_price) - (TRANSACTFEE_BTC + (TRANSACTFEE_ETH *2))
-etheur_btcfirst_arb = (((EXAMPLE_ARB_BTC / ethbtc_price) * etheur_price) / btceur_price) - (TRANSACTFEE_BTC + (TRANSACTFEE_ETH *2))
-etheur_eurfirst_arb = (((EXAMPLE_ARB_BTC * btceur_price) / etheur_price) * ethbtc_price) - (TRANSACTFEE_BTC + (TRANSACTFEE_ETH *2))
+eth_fees = TRANSACTFEE_BTC + (TRANSACTFEE_ETH *2)
+ethusd_btcfirst_arb = (((EXAMPLE_ARB_BTC / ethbtc_price) * ethusd_price) / btcusd_price) - eth_fees
+ethusd_usdfirst_arb = (((EXAMPLE_ARB_BTC * btcusd_price) / ethusd_price) * ethbtc_price) - eth_fees
+etheur_btcfirst_arb = (((EXAMPLE_ARB_BTC / ethbtc_price) * etheur_price) / btceur_price) - eth_fees
+etheur_eurfirst_arb = (((EXAMPLE_ARB_BTC * btceur_price) / etheur_price) * ethbtc_price) - eth_fees
 print "==="
 print "ETH:"
-print "USD native: {} usd".format(ethusd_price)
+print "USD native: {} usd [{} btc arb fees: {} btc/{} usd]".format(ethusd_price, EXAMPLE_ARB_BTC, eth_fees * EXAMPLE_ARB_BTC, eth_fees * EXAMPLE_ARB_BTC * btcusd_price)
 print "USD btc-first: {} usd [{} btc arbed: {}, profit: {} btc/{} usd]".format(ethbtc_price * btcusd_price, EXAMPLE_ARB_BTC, ethusd_btcfirst_arb, ethusd_btcfirst_arb - EXAMPLE_ARB_BTC, (ethusd_btcfirst_arb - EXAMPLE_ARB_BTC) * btcusd_price)
 print "USD usd-first: {} usd [{} btc arbed: {}, profit: {} btc/{} usd]".format(ethbtc_price * btcusd_price, EXAMPLE_ARB_BTC, ethusd_usdfirst_arb, ethusd_usdfirst_arb - EXAMPLE_ARB_BTC, (ethusd_usdfirst_arb - EXAMPLE_ARB_BTC) * btcusd_price)
 print "EUR btc-first: {} usd [{} btc arbed: {}, profit: {} btc/{} usd]".format((etheur_price / btceur_price) * btcusd_price, EXAMPLE_ARB_BTC, etheur_btcfirst_arb, etheur_btcfirst_arb - EXAMPLE_ARB_BTC, (etheur_btcfirst_arb - EXAMPLE_ARB_BTC) * btcusd_price)
