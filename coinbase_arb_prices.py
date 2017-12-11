@@ -49,7 +49,7 @@ print "ETH/EUR: {} eu, , highest bid: {} eu".format(etheur_price, etheur_bid)
 print "ETH/BTC: {} btc, highest bid: {} btc".format(ethbtc_price, ethbtc_bid)
 
 
-ltc_fees = TRANSACT_FEE_TAKER_BTC + (TRANSACT_FEE_TAKER_LTC *2)
+ltc_fees = COINBASE_TRANSACT_FEE_TAKER_BTC + (COINBASE_TRANSACT_FEE_TAKER_LTC *2)
 ltcusd_btcfirst_arb = (((EXAMPLE_ARB_BTC / ltcbtc_bid) * ltcusd_bid) / btcusd_bid) - ltc_fees
 ltcusd_usdfirst_arb = (((EXAMPLE_ARB_BTC * btcusd_bid) / ltcusd_bid) * ltcbtc_bid) - ltc_fees
 ltceur_btcfirst_arb = (((EXAMPLE_ARB_BTC / ltcbtc_bid) * ltceur_bid) / btceur_bid) - ltc_fees
@@ -63,7 +63,7 @@ print "EUR btc-first: {} usd [{} btc arbed: {}, arb profit: {} btc/{} usd]".form
 print "EUR eur-first: {} usd [{} btc arbed: {}, arb profit: {} btc/{} usd]".format(ltceur_price / btceur_price * btcusd_price, EXAMPLE_ARB_BTC, ltceur_eurfirst_arb, ltceur_eurfirst_arb- EXAMPLE_ARB_BTC, (ltceur_eurfirst_arb - EXAMPLE_ARB_BTC) * btcusd_price)
 
 
-eth_fees = TRANSACT_FEE_TAKER_BTC + (TRANSACT_FEE_TAKER_ETH *2)
+eth_fees = COINBASE_TRANSACT_FEE_TAKER_BTC + (COINBASE_TRANSACT_FEE_TAKER_ETH *2)
 ethusd_btcfirst_arb = (((EXAMPLE_ARB_BTC / ethbtc_bid) * ethusd_bid) / btcusd_bid) - eth_fees
 ethusd_usdfirst_arb = (((EXAMPLE_ARB_BTC * btcusd_bid) / ethusd_bid) * ethbtc_bid) - eth_fees
 etheur_btcfirst_arb = (((EXAMPLE_ARB_BTC / ethbtc_bid) * etheur_bid) / btceur_bid) - eth_fees
