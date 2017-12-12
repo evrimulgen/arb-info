@@ -130,6 +130,22 @@ print "  GDAX ETH/BTC --BTC--> BITTREX BTC/ETH - [{} btc arbed: {}, profit: {} b
 print "  GDAX ETH/BTC --BTC--> POLO BTC/ETH - [{} btc arbed: {}, profit: {} btc/{} usd]".format(EXAMPLE_ARB_BTC, gdax_btceth_polo_ethbtc_route_result, gdax_btceth_polo_ethbtc_route_result - EXAMPLE_ARB_BTC, (gdax_btceth_polo_ethbtc_route_result - EXAMPLE_ARB_BTC) * gdax_btcusd_bid)
 
 
+#GDAX LTC/BTC -> BTC/ETH --ETH--> BITTREX ETH/LTC
+gdax_ltcbtc_ethltc_bittrex_ethltc_route_arb = ((EXAMPLE_ARB_BTC * gdax_ltcbtc_bid) / gdax_ethbtc_bid) * bittrex_ethltc_bid
+gdax_ltcbtc_ethltc_bittrex_ethltc_route_fees = (EXAMPLE_ARB_BTC * (COINBASE_TRANSACT_FEE_TAKER_LTC + COINBASE_TRANSACT_FEE_TAKER_ETH + BITTREX_TRANSACT_FEE_TAKER)) \
+    + BITTREX_WITHDRAWAL_FEE_LTC_BTC + COINBASE_WITHDRAWAL_FEE_ETH_BTC
+gdax_ltcbtc_ethltc_bittrex_ethltc_route_result = gdax_ltcbtc_ethltc_bittrex_ethltc_route_arb - gdax_ltcbtc_ethltc_bittrex_ethltc_route_fees
+#GDAX ETH/BTC -> BTC/LTC --LTC--> BITTREX ETH/LTC
+gdax_ltcbtc_ethltc_polo_ethltc_route_arb = ((EXAMPLE_ARB_BTC * gdax_ethbtc_bid) / gdax_ltcbtc_bid) * bittrex_ethltc_bid
+gdax_ltcbtc_ethltc_polo_ethltc_route_fees = (EXAMPLE_ARB_BTC * (COINBASE_TRANSACT_FEE_TAKER_ETH + COINBASE_TRANSACT_FEE_TAKER_LTC + POLO_TRANSACT_FEE_TAKER)) \
+    + BITTREX_WITHDRAWAL_FEE_ETH_BTC + COINBASE_WITHDRAWAL_FEE_ETH_BTC
+gdax_ltcbtc_ethltc_polo_ethltc_route_result = gdax_ltcbtc_ethltc_polo_ethltc_route_arb - gdax_ltcbtc_ethltc_polo_ethltc_route_fees
+
+print "GDAX LTC-BTC and ETH-BTC Pairs:"
+print "  GDAX LTC/BTC -> BTC/ETH --ETH--> BITTREX ETH/LTC - [{} btc arbed: {}, profit: {} btc/{} usd]".format(EXAMPLE_ARB_BTC, gdax_ltcbtc_ethltc_bittrex_ethltc_route_result, gdax_ltcbtc_ethltc_bittrex_ethltc_route_result - EXAMPLE_ARB_BTC, (gdax_ltcbtc_ethltc_bittrex_ethltc_route_result - EXAMPLE_ARB_BTC) * gdax_btcusd_bid)
+print "  GDAX ETH/BTC -> BTC/LTC --LTC--> BITTREX ETH/LTC - [{} btc arbed: {}, profit: {} btc/{} usd]".format(EXAMPLE_ARB_BTC, gdax_ltcbtc_ethltc_polo_ethltc_route_result, gdax_ltcbtc_ethltc_polo_ethltc_route_result - EXAMPLE_ARB_BTC, (gdax_ltcbtc_ethltc_polo_ethltc_route_result - EXAMPLE_ARB_BTC) * gdax_btcusd_bid)
+
+
 #GDAX BTC/ETH to BITTREX ETH/BTC
 gdax_btceth_bittrex_ethbtc_route_arb = (EXAMPLE_ARB_BTC / gdax_ethbtc_bid) * bittrex_btceth_bid
 gdax_btceth_bittrex_ethbtc_route_fees = (EXAMPLE_ARB_BTC * (COINBASE_TRANSACT_FEE_TAKER_ETH + BITTREX_TRANSACT_FEE_TAKER)) \
@@ -156,26 +172,6 @@ print "  GDAX BTC/ETH --ETH--> BITTREX ETH/BTC - [{} btc arbed: {}, profit: {} b
 print "  GDAX BTC/ETH --ETH--> POLO ETH/BTC - [{} btc arbed: {}, profit: {} btc/{} usd]".format(EXAMPLE_ARB_BTC, gdax_btceth_polo_ethbtc_route_result, gdax_btceth_polo_ethbtc_route_result - EXAMPLE_ARB_BTC, (gdax_btceth_polo_ethbtc_route_result - EXAMPLE_ARB_BTC) * gdax_btcusd_bid)
 print "  GDAX BTC/LTC --LTC--> BITTREX LTC/BTC - [{} btc arbed: {}, profit: {} btc/{} usd]".format(EXAMPLE_ARB_BTC, gdax_btcltc_bittrex_ltcbtc_route_result, gdax_btcltc_bittrex_ltcbtc_route_result - EXAMPLE_ARB_BTC, (gdax_btcltc_bittrex_ltcbtc_route_result - EXAMPLE_ARB_BTC) * gdax_btcusd_bid)
 print "  GDAX BTC/LTC --LTC--> POLO LTC/BTC - [{} btc arbed: {}, profit: {} btc/{} usd]".format(EXAMPLE_ARB_BTC, gdax_btcltc_polo_ltcbtc_route_result, gdax_btcltc_polo_ltcbtc_route_result - EXAMPLE_ARB_BTC, (gdax_btcltc_polo_ltcbtc_route_result - EXAMPLE_ARB_BTC) * gdax_btcusd_bid)
-
-
-#GDAX LTC/BTC -> BTC/ETH --ETH--> BITTREX ETH/LTC
-gdax_ltcbtc_ethltc_bittrex_ethltc_route_arb = ((EXAMPLE_ARB_BTC * gdax_ltcbtc_bid) / gdax_ethbtc_bid) * bittrex_ethltc_bid
-gdax_ltcbtc_ethltc_bittrex_ethltc_route_fees = (EXAMPLE_ARB_BTC * (COINBASE_TRANSACT_FEE_TAKER_LTC + COINBASE_TRANSACT_FEE_TAKER_ETH + BITTREX_TRANSACT_FEE_TAKER)) \
-    + BITTREX_WITHDRAWAL_FEE_LTC_BTC + COINBASE_WITHDRAWAL_FEE_ETH_BTC
-gdax_ltcbtc_ethltc_bittrex_ethltc_route_result = gdax_ltcbtc_ethltc_bittrex_ethltc_route_arb - gdax_ltcbtc_ethltc_bittrex_ethltc_route_fees
-
-print "GDAX LTC-BTC Pairs:"
-print "  GDAX LTC/BTC -> BTC/ETH --ETH--> BITTREX ETH/LTC - [{} btc arbed: {}, profit: {} btc/{} usd]".format(EXAMPLE_ARB_BTC, gdax_ltcbtc_ethltc_bittrex_ethltc_route_result, gdax_ltcbtc_ethltc_bittrex_ethltc_route_result - EXAMPLE_ARB_BTC, (gdax_ltcbtc_ethltc_bittrex_ethltc_route_result - EXAMPLE_ARB_BTC) * gdax_btcusd_bid)
-
-
-#GDAX ETH/BTC -> BTC/LTC --LTC--> BITTREX ETH/LTC
-gdax_ltcbtc_ethltc_polo_ethltc_route_arb = ((EXAMPLE_ARB_BTC * gdax_ethbtc_bid) / gdax_ltcbtc_bid) * bittrex_ethltc_bid
-gdax_ltcbtc_ethltc_polo_ethltc_route_fees = (EXAMPLE_ARB_BTC * (COINBASE_TRANSACT_FEE_TAKER_ETH + COINBASE_TRANSACT_FEE_TAKER_LTC + POLO_TRANSACT_FEE_TAKER)) \
-    + BITTREX_WITHDRAWAL_FEE_ETH_BTC + COINBASE_WITHDRAWAL_FEE_ETH_BTC
-gdax_ltcbtc_ethltc_polo_ethltc_route_result = gdax_ltcbtc_ethltc_polo_ethltc_route_arb - gdax_ltcbtc_ethltc_polo_ethltc_route_fees
-
-print "GDAX ETH-BTC Pairs:"
-print "  GDAX ETH/BTC -> BTC/LTC --LTC--> BITTREX ETH/LTC - [{} btc arbed: {}, profit: {} btc/{} usd]".format(EXAMPLE_ARB_BTC, gdax_ltcbtc_ethltc_polo_ethltc_route_result, gdax_ltcbtc_ethltc_polo_ethltc_route_result - EXAMPLE_ARB_BTC, (gdax_ltcbtc_ethltc_polo_ethltc_route_result - EXAMPLE_ARB_BTC) * gdax_btcusd_bid)
 
 
 #GDAX BTC/USD -> ETH/USD to BITTREX ETH/BTC 
