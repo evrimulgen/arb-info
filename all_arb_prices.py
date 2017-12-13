@@ -75,25 +75,25 @@ print "Tickers:"
 print "-"
 print "BTC/USD:"
 print "  GDAX - {:.2f} usd, highest bid: {:.2f} usd".format(gdax_btcusd_price, gdax_btcusd_bid)
-print "  BTRX - {:.2f} usd, highest bid: {:.2f} usd, [last: {:.5f}%, bid: {:.5f}% diff vs GDAX]".format(bittrex_usdtbtc_price, bittrex_usdtbtc_bid, calc_perc(gdax_btcusd_price, bittrex_usdtbtc_price), calc_perc(gdax_btcusd_bid, bittrex_usdtbtc_bid))
-print "  POLO - {:.2f} usd, highest bid: {:.2f} usd, [last: {:.5f}%, bid: {:.5f}% diff vs GDAX]".format(polo_usdtbtc_price, polo_usdtbtc_bid, calc_perc(gdax_btcusd_price, polo_usdtbtc_price), calc_perc(gdax_btcusd_bid, polo_usdtbtc_bid))
+print "  BTRX - {:.2f} usd, highest bid: {:.2f} usd   - [last: {:.5f}%, bid: {:.5f}% diff vs GDAX]".format(bittrex_usdtbtc_price, bittrex_usdtbtc_bid, calc_perc(gdax_btcusd_price, bittrex_usdtbtc_price), calc_perc(gdax_btcusd_bid, bittrex_usdtbtc_bid))
+print "  POLO - {:.2f} usd, highest bid: {:.2f} usd   - [last: {:.5f}%, bid: {:.5f}% diff vs GDAX]".format(polo_usdtbtc_price, polo_usdtbtc_bid, calc_perc(gdax_btcusd_price, polo_usdtbtc_price), calc_perc(gdax_btcusd_bid, polo_usdtbtc_bid))
 print "LTC/USD:"
 print "  GDAX - {:.2f} usd, highest bid: {:.2f} usd".format(gdax_ltcusd_price, gdax_ltcusd_bid)
-print "  BTRX - {:.2f} usd, highest bid: {:.2f} usd,     [last: {:.5f}%, bid: {:.5f}% diff vs GDAX]".format(bittrex_usdtltc_price, bittrex_usdtltc_bid, calc_perc(gdax_ltcusd_price, bittrex_usdtltc_price), calc_perc(gdax_ltcusd_bid, bittrex_usdtltc_bid))
-print "  POLO - {:.2f} usd, highest bid: {:.2f} usd,     [last: {:.5f}%, bid: {:.5f}% diff vs GDAX]".format(polo_usdtltc_price, polo_usdtltc_bid, calc_perc(gdax_ltcusd_price, polo_usdtltc_price), calc_perc(gdax_ltcusd_bid, polo_usdtltc_bid))
+print "  BTRX - {:.2f} usd, highest bid: {:.2f} usd       - [last: {:.5f}%, bid: {:.5f}% diff vs GDAX]".format(bittrex_usdtltc_price, bittrex_usdtltc_bid, calc_perc(gdax_ltcusd_price, bittrex_usdtltc_price), calc_perc(gdax_ltcusd_bid, bittrex_usdtltc_bid))
+print "  POLO - {:.2f} usd, highest bid: {:.2f} usd       - [last: {:.5f}%, bid: {:.5f}% diff vs GDAX]".format(polo_usdtltc_price, polo_usdtltc_bid, calc_perc(gdax_ltcusd_price, polo_usdtltc_price), calc_perc(gdax_ltcusd_bid, polo_usdtltc_bid))
 print "LTC/BTC:"
 print "  GDAX - {:.5f} btc, highest bid: {:.5f} btc".format(gdax_ltcbtc_price, gdax_ltcbtc_bid)
-print "  BTRX - {:.5f} btc, highest bid: {:.5f} btc,   [last: {:.5f}%, bid: {:.5f}% diff vs GDAX]".format(bittrex_btcltc_price, bittrex_btcltc_bid, calc_perc(gdax_ltcbtc_price, bittrex_btcltc_price), calc_perc(gdax_ltcbtc_bid, bittrex_btcltc_bid))
-print "  POLO - {:.5f} btc, highest bid: {:.5f} btc,   [last: {:.5f}%, bid: {:.5f}% diff vs GDAX]".format(polo_btcltc_price, polo_btcltc_bid, calc_perc(gdax_ltcbtc_price, polo_btcltc_price), calc_perc(gdax_ltcbtc_bid, polo_btcltc_bid))
+print "  BTRX - {:.5f} btc, highest bid: {:.5f} btc     - [last: {:.5f}%, bid: {:.5f}% diff vs GDAX]".format(bittrex_btcltc_price, bittrex_btcltc_bid, calc_perc(gdax_ltcbtc_price, bittrex_btcltc_price), calc_perc(gdax_ltcbtc_bid, bittrex_btcltc_bid))
+print "  POLO - {:.5f} btc, highest bid: {:.5f} btc     - [last: {:.5f}%, bid: {:.5f}% diff vs GDAX]".format(polo_btcltc_price, polo_btcltc_bid, calc_perc(gdax_ltcbtc_price, polo_btcltc_price), calc_perc(gdax_ltcbtc_bid, polo_btcltc_bid))
 print "ETH/USD:"
 print "  GDAX - {:.2f} usd, highest bid: {:.2f} usd".format(gdax_ethusd_price, gdax_ethusd_bid)
-print "  BTRX - {:.2f} usd, highest bid: {:.2f} usd,     [last: {:.5f}%, bid: {:.5f}% diff vs GDAX]".format(bittrex_usdteth_price, bittrex_usdteth_bid, calc_perc(gdax_ethusd_price, bittrex_usdteth_price), calc_perc(gdax_ethusd_bid, bittrex_usdteth_bid))
-print "  POLO - {:.2f} usd, highest bid: {:.2f} usd,     [last: {:.5f}%, bid: {:.5f}% diff vs GDAX]".format(polo_usdteth_price, polo_usdteth_bid, calc_perc(gdax_ethusd_price, polo_usdteth_price), calc_perc(gdax_ethusd_bid, polo_usdteth_bid))
+print "  BTRX - {:.2f} usd, highest bid: {:.2f} usd       - [last: {:.5f}%, bid: {:.5f}% diff vs GDAX]".format(bittrex_usdteth_price, bittrex_usdteth_bid, calc_perc(gdax_ethusd_price, bittrex_usdteth_price), calc_perc(gdax_ethusd_bid, bittrex_usdteth_bid))
+print "  POLO - {:.2f} usd, highest bid: {:.2f} usd       - [last: {:.5f}%, bid: {:.5f}% diff vs GDAX]".format(polo_usdteth_price, polo_usdteth_bid, calc_perc(gdax_ethusd_price, polo_usdteth_price), calc_perc(gdax_ethusd_bid, polo_usdteth_bid))
 print "ETH/BTC:"
 print "  GDAX - {:.5f} btc, highest bid: {:.5f} btc".format(gdax_ethbtc_price, gdax_ethbtc_bid)
-print "  BTRX - {:.5f} btc, highest bid: {:.5f} btc,   [last: {:.5f}%, bid: {:.5f}% diff vs GDAX]".format(bittrex_btceth_price, bittrex_btceth_bid, calc_perc(gdax_ethbtc_price, bittrex_btceth_price), calc_perc(gdax_ethbtc_bid, bittrex_btceth_bid))
-print "  POLO - {:.5f} btc, highest bid: {:.5f} btc,   [last: {:.5f}%, bid: {:.5f}% diff vs GDAX]".format(polo_btceth_price, polo_btceth_bid, calc_perc(gdax_ethbtc_price, polo_btceth_price), calc_perc(gdax_ethbtc_bid, polo_btceth_bid))
-print "==="
+print "  BTRX - {:.5f} btc, highest bid: {:.5f} btc     - [last: {:.5f}%, bid: {:.5f}% diff vs GDAX]".format(bittrex_btceth_price, bittrex_btceth_bid, calc_perc(gdax_ethbtc_price, bittrex_btceth_price), calc_perc(gdax_ethbtc_bid, bittrex_btceth_bid))
+print "  POLO - {:.5f} btc, highest bid: {:.5f} btc     - [last: {:.5f}%, bid: {:.5f}% diff vs GDAX]".format(polo_btceth_price, polo_btceth_bid, calc_perc(gdax_ethbtc_price, polo_btceth_price), calc_perc(gdax_ethbtc_bid, polo_btceth_bid))
+print "==="                                                   
 
 
 #GDAX BTC/LTC to BITTREX LTC/BTC
